@@ -16,7 +16,7 @@ class StatusController extends Controller
         // Auth::user()->makeStatus($request->body);
 
         //kedua menggunakan request
-        $request->make($request->body);
+        $request->make();
 
         //ketiga menggunakan Auth
         // Auth::user()->statuses()->create([

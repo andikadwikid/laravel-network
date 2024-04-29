@@ -44,6 +44,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function gravatar($size = 100)
+    {
+        $default = "test";
+        return "https://www.gravatar.com/avatar/" . hash("sha256", strtolower(trim('andika0106dwiki@gmail.com'))) . "?d=" . urlencode($default) . "&s=" . $size;
+    }
+
     public function statuses()
     {
         return $this->hasMany(Status::class);

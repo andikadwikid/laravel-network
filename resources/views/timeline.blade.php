@@ -7,7 +7,7 @@
                         @csrf
                         <div class="flex">
                             <div class="flex-shrink-0 mr-3">
-                                <img class="w-10 h-10 rounded-full" src="https://i.pravatar.cc/150" alt="">
+                                <img class="w-10 h-10 rounded-full" src="{{ Auth::user()->gravatar() }}" alt="">
                             </div>
                             <div class="w-full">
                                 <div class="font-semibold">
@@ -33,7 +33,7 @@
                         <x-card>
                             <div class="flex">
                                 <div class="flex-shrink-0 mr-3">
-                                    <img class="w-10 h-10 rounded-full" src="https://i.pravatar.cc/150"
+                                    <img class="w-10 h-10 rounded-full" src="{{ $status->user->gravatar() }}"
                                         alt="{{ Auth::user()->name }}">
                                 </div>
                                 <div>
@@ -60,7 +60,7 @@
                         @foreach (Auth::user()->follows()->limit(5)->get() as $user)
                         <div class="flex items-center">
                             <div class="flex-shrink-0 mr-3">
-                                <img class="w-10 h-10 rounded-full" src="https://i.pravatar.cc/150"
+                                <img class="w-10 h-10 rounded-full" src="{{ $user->gravatar() }}"
                                     alt="{{ $status->user->name }}">
                             </div>
                             <div>

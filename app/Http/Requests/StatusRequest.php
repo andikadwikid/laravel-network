@@ -29,8 +29,8 @@ class StatusRequest extends FormRequest
         ];
     }
 
-    public function make($string)
+    public function make()
     {
-        return Auth::user()->makeStatus($string);
+        return Auth::user()->makeStatus($this->body);
     }
 }
