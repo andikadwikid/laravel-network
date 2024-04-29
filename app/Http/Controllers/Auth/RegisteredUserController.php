@@ -41,7 +41,7 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create([
-            'username' => strtolower(Str::random(10)),
+            'username' => 'u' . strtolower(Str::random(14)),
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
