@@ -21,6 +21,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
     ];
@@ -46,8 +47,8 @@ class User extends Authenticatable
 
     public function gravatar($size = 100)
     {
-        $default = "test";
-        return "https://www.gravatar.com/avatar/" . hash("sha256", strtolower(trim('andika0106dwiki@gmail.com'))) . "?d=" . urlencode($default) . "&s=" . $size;
+        $default = "mm";
+        return "https://www.gravatar.com/avatar/" . hash("sha256", strtolower(trim($this->email))) . "?d=" . urlencode($default) . "&s=" . $size;
     }
 
     public function statuses()
