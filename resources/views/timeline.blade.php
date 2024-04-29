@@ -29,27 +29,9 @@
                 </x-card>
                 <div class="space-y-6 mt-5">
                     <div class="space-y-5">
-                        @foreach ($statuses as $status)
-                        <x-card>
-                            <div class="flex">
-                                <div class="flex-shrink-0 mr-3">
-                                    <img class="w-10 h-10 rounded-full" src="{{ $status->user->gravatar() }}"
-                                        alt="{{ Auth::user()->name }}">
-                                </div>
-                                <div>
-                                    <div class="font-semibold">
-                                        {{ $status->user->name }}
-                                    </div>
-                                    <div class="leading-relaxed">
-                                        {{ $status->body }}
-                                    </div>
-                                    <div class="text-sm text-gray-600">
-                                        {{ $status->created_at->diffForHumans() }}
-                                    </div>
-                                </div>
-                            </div>
-                        </x-card>
-                        @endforeach
+                        <x-statuses :statuses="$statuses">
+
+                        </x-statuses>
                     </div>
                 </div>
             </div>
@@ -61,7 +43,7 @@
                         <div class="flex items-center">
                             <div class="flex-shrink-0 mr-3">
                                 <img class="w-10 h-10 rounded-full" src="{{ $user->gravatar() }}"
-                                    alt="{{ $status->user->name }}">
+                                    alt="{{ $user->name }}">
                             </div>
                             <div>
                                 <div class="font-semibold">

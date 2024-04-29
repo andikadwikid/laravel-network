@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/timeline', TimelineController::class)->name('timeline');
     Route::post('/status/create', [StatusController::class, 'store'])->name('status.store');
 
-    Route::get('/profile/{user}', ProfileInformationController::class)->name('profile');
+    Route::get('/profile/{user}', ProfileInformationController::class)->name('profile')->withoutMiddleware('auth');
 });
 
 Route::middleware('guest')->group(function () {
