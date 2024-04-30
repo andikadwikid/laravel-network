@@ -21,10 +21,8 @@
     <x-statistik :user="$user" />
 
     <x-container>
-        <div class="grid grid-cols-2">
-            <div class="space-y-5">
-                <x-statuses :statuses="$statuses" />
-            </div>
+        <div class="grid grid-cols-3 gap-5">
+            <x-following :users="$follows" />
         </div>
     </x-container>
 </x-app-layout>
