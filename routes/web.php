@@ -24,8 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/timeline', TimelineController::class)->name('timeline');
     Route::post('/status/create', [StatusController::class, 'store'])->name('status.store');
 
-    Route::get('/profile/{user}/{following}', FollowingController::class)->name('profile.following');
-    // Route::get('/profile/{user}/follower', FollowingController::class)->name('profile.follower');
+    Route::get('/profile/{user}/{following}', [FollowingController::class, 'index'])->name('following.index');
+    Route::post('/profile/{user}', [FollowingController::class, 'store'])->name('following.store');
 
     Route::get('/profile/{user}', ProfileInformationController::class)->name('profile')->withoutMiddleware('auth');
 });

@@ -71,6 +71,12 @@ class User extends Authenticatable
         return $this->follows()->save($user);
     }
 
+    public function unfollow(User $user)
+    {
+        //detach berfungsi untuk menghapus relasi pada pivot table
+        return $this->follows()->detach($user);
+    }
+
     public function timeline()
     {
         $following = $this->follows->pluck('id');
@@ -87,5 +93,10 @@ class User extends Authenticatable
             'body' => $string,
             'identifier' => Str::slug($this->id . Str::random(32)),
         ]);
+    }
+
+    public function hasFollow(User $user)
+    {
+        return $this->follows()->where('following_user_id', $user->id)->exists();
     }
 }
