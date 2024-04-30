@@ -27,11 +27,13 @@
                         </div>
                     </form>
                 </x-card>
-                <div class="space-y-6 mt-5">
+                <div class="space-y-6 my-5">
                     <div class="space-y-5">
                         <x-statuses :statuses="$statuses" />
                     </div>
                 </div>
+
+                {{ $statuses->links() }}
             </div>
             <div class="col-span-4">
                 <x-card>

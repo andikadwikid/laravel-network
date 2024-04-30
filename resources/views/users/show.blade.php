@@ -26,5 +26,9 @@
                 <x-statuses :statuses="$statuses" />
             </div>
         </div>
+
+        <div class="mt-6">
+            {{ $statuses->links() }}
+        </div>
     </x-container>
 </x-app-layout>
